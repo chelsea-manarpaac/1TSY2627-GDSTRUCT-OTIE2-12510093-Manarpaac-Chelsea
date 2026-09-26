@@ -4,7 +4,6 @@ public class Main
     public static void main(String[] args)
     {
         int[] num = new int[10];
-
         num[0] = 400;
         num[1] = 90;
         num[2] = 80;
@@ -22,7 +21,7 @@ public class Main
             System.out.print(num[i]+ " ");
         }
 
-        //BubbleSort O(n^2)
+        //Bubble Sort O(n^2)
         for (int lastSortedIndex = num.length - 1;
              lastSortedIndex > 0;
              lastSortedIndex--)
@@ -30,13 +29,13 @@ public class Main
             //i = current index
             for(int i = 0; i < lastSortedIndex; i++)
             {
-                int rightNum = num[i];
-                int leftNum = num[i+1];
+                int rightNum = num[i+1];
+                int leftNum = num[i];
 
                 if(leftNum < rightNum)
                 {
-                    num[i+1] = rightNum;
-                    num[i] = leftNum;
+                    num[i] = rightNum;
+                    num[i+1] = leftNum;
                 }
             }
         }
