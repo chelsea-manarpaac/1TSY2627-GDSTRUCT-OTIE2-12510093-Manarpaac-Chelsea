@@ -15,31 +15,33 @@ public class Main
         num[8] = 55;
         num[9] = -73;
 
-        System.out.println("Before Bubble Sort");
+        System.out.println("Before Selection Sort");
         for(int i = 0; i < num.length; i++)
         {
             System.out.print(num[i]+ " ");
         }
 
-        //Bubble Sort O(n^2)
-        for (int lastSortedIndex = num.length - 1;
-             lastSortedIndex > 0;
-             lastSortedIndex--)
+        //SelectionSort O(n^2)
+        for(int curIdx = 0; curIdx < num.length; curIdx++)
         {
-            //i = current index
-            for(int i = 0; i < lastSortedIndex; i++)
-            {
-                int rightNum = num[i+1];
-                int leftNum = num[i];
+            int smallestIndex = curIdx;
 
-                if(leftNum < rightNum)
+            for (int searchIdx = curIdx + 1;
+                 searchIdx<num.length;
+                 searchIdx++)
+            {
+                if(num[searchIdx] > num[smallestIndex])
                 {
-                    num[i] = rightNum;
-                    num[i+1] = leftNum;
+                    smallestIndex = searchIdx;
                 }
             }
+
+            //swapping
+            int smallestNumber = num[smallestIndex];
+            num[smallestIndex] = num[curIdx];
+            num[curIdx] = smallestNumber;
         }
-        System.out.println("\nAfter Bubble Sort");
+        System.out.println("\nAfter Selection Sort");
         for(int i = 0; i < num.length; i++)
         {
             System.out.print(num[i]+ " ");
